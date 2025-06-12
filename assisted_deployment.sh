@@ -278,6 +278,9 @@ function deploy_assisted_operator() {
   oc apply -f "${ASSETS_DIR}/04-assisted-service.yaml"
   wait_for_crd "agentserviceconfigs.agent-install.openshift.io"
 
+  # Infrastructure Operator requires ManagedCluster CRD to be defined in the cluster ahead of deploying
+  oc apply -f https://raw.githubusercontent.com/openshift/assisted-service/0c92e1ae0ba4d8fe2f29b15e9824b88405aea480/hack/crds/mce/managedclusters.cluster.open-cluster-management.io.yaml
+
   generate_assisted_service_config
   oc apply -f "${ASSETS_DIR}/05-assisted-service-config.yaml"
 }
