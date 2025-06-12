@@ -713,6 +713,9 @@ set -x
 # Get the latest default versions from the assisted-service repo itself.
 # export ASSISTED_OPENSHIFT_VERSIONS=$(wget -qO- https://raw.githubusercontent.com/openshift/assisted-service/master/default_ocp_versions.json)
 
+# Configure a smaller subset of OS Images provided to assisted-service
+# export ASSISTED_OS_IMAGES="[{\"openshift_version\":\"4.19\",\"cpu_architecture\":\"x86_64\",\"url\":\"https://mirror.openshift.com/pub/openshift-v4/x86_64/dependencies/rhcos/4.18/4.18.1/rhcos-4.18.1-x86_64-live.x86_64.iso\",\"version\":\"48.84.202109241901-0\"}]"
+
 # Operator's bundle index to use. This will allow for testing a custom Assisted operator build that has
 # not been published yet. For custom Assisted Service images it's enough to overwrite one of the images above.
 # Overwrite this image only if you are working on the operator itself.

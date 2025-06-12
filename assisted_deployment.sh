@@ -180,6 +180,12 @@ cat <<EOF
     - name: OPENSHIFT_VERSIONS
       value: '$ASSISTED_OPENSHIFT_VERSIONS'
 EOF
+
+    if [ -n "${ASSISTED_OS_IMAGES}" ]; then
+cat <<EOF
+    - name: OS_IMAGES
+      value: '$ASSISTED_OS_IMAGES'
+EOF
     fi
 }
 
